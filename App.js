@@ -34,7 +34,7 @@ export default function App(){
       <Text style={styles.welcomeText}>Welcome to</Text>
       <Text style={styles.PBKtext}>Power Bike Shop</Text>
 
-     <View style={styles.buttonView}>
+    <View style={styles.buttonView}>
       <TouchableOpacity style={styles.googleButton}>
         <Text style={styles.buttonText}> Login with Gmail</Text>
     
@@ -43,13 +43,13 @@ export default function App(){
         <Text style={styles.buttonText2}> Login with Apple</Text>
     
       </TouchableOpacity>
-      </View>
+    </View>
 
       <View style={styles.buttomview}>
-
+        <Text style={styles.buttomtext}>Not a member?</Text>
+        <Text style={styles.buttomtext2}> Sign Up</Text>
       </View>
-      <Text style={styles.buttomtext}>Not a member?</Text>
-      <Text style={styles.buttomtext}> Sign Up</Text>
+      
 
     </View>
   );
@@ -81,6 +81,14 @@ const styles = StyleSheet.create({
    buttomtext:{
     fontSize: 14,
     color:"gray",
+    marginTop: 12,
+    
+
+  },
+  buttomtext2:{
+    fontSize: 14,
+    color:"orange",
+    fontWeight: "bold",
     marginTop: 12,
     
 
