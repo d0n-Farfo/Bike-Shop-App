@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import {AntDesign} from '@expo/vector-icons';
 /*
 import {createStackNavigator} from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native';
@@ -36,10 +37,12 @@ export default function App(){
 
     <View style={styles.buttonView}>
       <TouchableOpacity style={styles.googleButton}>
+      <AntDesign name="google" size={26} color="black" />
         <Text style={styles.buttonText}> Login with Gmail</Text>
     
       </TouchableOpacity>
       <TouchableOpacity style={styles.appleButton}>
+      <AntDesign name="apple1" size={26} color="white" />
         <Text style={styles.buttonText2}> Login with Apple</Text>
     
       </TouchableOpacity>
@@ -47,7 +50,9 @@ export default function App(){
 
       <View style={styles.buttomview}>
         <Text style={styles.buttomtext}>Not a member?</Text>
+      <TouchableOpacity style={styles.signButton}>
         <Text style={styles.buttomtext2}> Sign Up</Text>
+      </TouchableOpacity>  
       </View>
       
 
@@ -94,14 +99,15 @@ const styles = StyleSheet.create({
 
   },
    buttonText:{
-     fontSize: 18,
+     fontSize: 20,
      fontWeight: "bold",
      textAlign:"center",
+     
 
 
    },
    buttonText2:{
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign:"center",
     color: "white",
@@ -113,6 +119,8 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 12,
     marginTop: 10,
+    flexDirection: "row",
+    justifyContent: "center",
 
 
   },
@@ -121,6 +129,14 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 12,
     marginTop: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  signButton:{
+    backgroundColor: "white",
+    borderRadius: 12,
+  
+    
   },
   buttonView:{
     width:"85%"
