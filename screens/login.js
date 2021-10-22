@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function login() {
+export default function login({navigation}) {
     return (
         <View style={styles.container}>
             <Image
@@ -13,12 +13,13 @@ export default function login() {
             <Text style={styles.PBKtext}>Power Bike Shop</Text>
 
             <View style={styles.buttonView}>
-                <TouchableOpacity style={styles.googleButton}>
+                <TouchableOpacity onPress={() => {navigation.navigate("home")}} style={styles.googleButton}>
                     <AntDesign name="google" size={26} color="black" />
                     <Text style={styles.buttonText}> Login with Gmail</Text>
 
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.appleButton}>
+
+                <TouchableOpacity onPress={() => {navigation.navigate("home")}}  style={styles.appleButton}>
                     <AntDesign name="apple1" size={26} color="white" />
                     <Text style={styles.buttonText2}> Login with Apple</Text>
                 </TouchableOpacity>
