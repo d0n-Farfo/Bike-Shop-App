@@ -25,24 +25,25 @@ const Bikeframe = ({bikename, price, image}) => {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#e7e4e4de',
-      flex: 0.8,
-      borderRadius: 10,
-      marginHorizontal: 5,
-      marginVertical: 5,
+      backgroundColor: '#e6e6e6',
+      flex: 1,
+      borderRadius: 12,
+      marginHorizontal: 20,
+      marginVertical: 10,
       padding: 12,
 
     },
 
     details: {
-      marginTop: 5,
+      marginTop: 10,
       alignItems: 'center',
+    
 
     },
 
     bikename: {
       fontSize: 16,
-      color: '#a5a5a5',
+      color: 'gray',
 
     },
 
@@ -52,9 +53,11 @@ const styles = StyleSheet.create({
     },
 
     image: {
-      width: 140,
-      height: 140,
+      marginTop:30,
+      width: 180,
+      height: 120,
       alignSelf: 'center',
+      resizeMode: 'contain',
 
     },
 

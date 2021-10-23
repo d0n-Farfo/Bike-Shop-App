@@ -84,8 +84,11 @@ const categories = [
         <Text style={styles.categoryText}>{name}</Text>
       </View>
     );
+
+   
   };
 
+  
   const BikeFrames = [
     {
       id: '1',
@@ -181,7 +184,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 25,
         backgroundColor: '#e6e6e6',
-        marginHorizontal: 5,
+        marginHorizontal: 20,
         marginVertical: 15,
         borderRadius: 12,
         marginTop: 25,
@@ -191,12 +194,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'gray',
 
-      },
-
-      bikes:{
-
-        flex:5,
-        
       },
 
       
