@@ -110,7 +110,7 @@ const categories = [
     
     {
       id: '4',
-      name: 'H2R Bike',
+      bikename: 'H2R Bike',
       price: '60,980.00',
       image: require('../assets/h2r1000.png'),
     },
