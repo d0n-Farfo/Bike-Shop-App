@@ -1,9 +1,10 @@
 import React from "react";
 import { View } from "react-native";
-import { StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
+import Bikeframe from "../components/frame";
 
 export default function home(){
     return <View>
@@ -31,26 +32,91 @@ export default function home(){
                     <Text style={styles.Catview}>Categories</Text>
                 </View>
 
-                <View style={styles.catTabs}>
-                    <TouchableOpacity style={styles.allbutton}>
-                        <Text style={styles.allview}>All</Text>
-                    </TouchableOpacity>
+            <View>
+                <FlatList
+                    data={categories}
+                    renderItem={({item}) => {
+                        return <Category name={item.name} />;
+                    }}
+                    keyExtractor={item => {
+                        item.id;
+                    }}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                />
+            </View>
 
-                    <TouchableOpacity style={styles.Roadtab}>
-                        <Text style={styles.roadbike}>Roadbike</Text>
-                    </TouchableOpacity>
+            <View style={StyleSheet.bikes}>
+            
+                <FlatList
+                    data={BikeFrames}
+                    renderItem={({item}) => {
+                        return (
+                            <Bikeframe
+                                bikename={item.bikename}
+                                price={item.price}
+                                image={item.image}
+                            />
+                        );
+                    }}
+                    keyExtractor={item => {
+                        item.id;
+                    }}
+                    horizontal={false}
+                    numColumns={2}
+                />
+            </View>  
 
-                    <TouchableOpacity style={styles.mounttab}>
-                        <Text style={styles.mountain}>Mountain</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.urbantab}>
-                        <Text style={styles.urban}>Urban</Text>
-                    </TouchableOpacity>
-                </View>
+        
         
     </View>;
 }
+const categories = [
+    {id: '1a', name: 'All'},
+    {id: '2', name: 'Roadbike'},
+    {id: '3', name: 'Mountain'},
+    {id: '4', name: 'Urban'},
+  ];
+  
+  const Category = ({name}) => {
+    return (
+      <View style={styles.categorytab}>
+        <Text style={styles.categoryText}>{name}</Text>
+      </View>
+    );
+  };
+
+  const BikeFrames = [
+    {
+      id: '1',
+      bikename: 'Santa Cruzz Bike',
+      price: '1,700.00',
+      image: require('../assets/blue.png'), 
+    },
+
+    {
+      id: '2',
+      bikename: 'Polygod Bike',
+      price: '1,500.00',
+      image: require('../assets/polygod.png'),
+    },
+    
+    {
+      id: '3',
+      bikename: 'Mongoose Bike',
+      price: '1,200.00',
+      image: require('../assets/red.png'),
+    },
+    
+    {
+      id: '4',
+      name: 'H2R Bike',
+      price: '60,980.00',
+      image: require('../assets/h2r1000.png'),
+    },
+    
+  ];
+
 
 const styles = StyleSheet.create({
     container: {
@@ -111,75 +177,29 @@ const styles = StyleSheet.create({
         fontWeight:"bold",
     },
 
-    catTabs:{
-        flexDirection:"row",
-
-    },
-
-    allview:{
-        fontSize:18,
-        color:"gray",
-    },
-
-    allbutton:{
-        marginTop:20,
-        marginLeft:10,
-        backgroundColor: "#e6e6e6",
-        padding: 15,
+    categorytab: {
+        paddingVertical: 10,
+        paddingHorizontal: 25,
+        backgroundColor: '#e6e6e6',
+        marginHorizontal: 5,
+        marginVertical: 15,
         borderRadius: 12,
-        flexDirection: "row",
-        width: 70,
-        justifyContent: "center",
-    },
-    roadbike:{
-        fontSize:18,
-        color:"gray",
-    
-    },
+        marginTop: 25,
 
-    Roadtab:{
-        marginTop:20,
-        marginLeft:15,
-        backgroundColor: "#e6e6e6",
-        padding: 15,
-        borderRadius: 12,
-        flexDirection: "row",
-        width: 130,
-        justifyContent: "center",
-    },
+      },
+      categoryText: {
+        fontSize: 20,
+        color: 'gray',
 
-    mountain:{
-        fontSize:18,
-        color:"gray",
-    
-    },
+      },
 
-    mounttab:{
-        marginTop:20,
-        marginLeft:15,
-        backgroundColor: "#e6e6e6",
-        padding: 15,
-        borderRadius: 12,
-        flexDirection: "row",
-        width: 130,
-        justifyContent: "center",
-    },
+      bikes:{
 
-    urban:{
-        fontSize:18,
-        color:"gray",
-    
-    },
+        flex:5,
+        
+      },
 
-    urbantab:{
-        marginTop:20,
-        marginLeft:15,
-        backgroundColor: "#e6e6e6",
-        padding: 15,
-        borderRadius: 12,
-        flexDirection: "row",
-        width: 130,
-        justifyContent: "center",
-    },
+      
 
-});    
+});
+
