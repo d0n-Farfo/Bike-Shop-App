@@ -5,9 +5,12 @@ import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import Bikeframe from "../components/frame";
+import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
-export default function home(){
-    return <View>
+export default function home({navigation}){
+    return (
+        <View>
 
                 <View style= {styles.TopView}>
                     <FontAwesome5 name="grip-lines" size={24} color="black" />
@@ -65,13 +68,28 @@ export default function home(){
                     horizontal={false}
                     numColumns={2}
                 />
+            </View>
+
+            <View style = {styles.hometab}>
+                <TouchableOpacity style = {styles.homebutton}>
+                    <AntDesign name="home" size={35} color="#ff792f" />
+                </TouchableOpacity>
+                <TouchableOpacity style = {styles.MicButton}>
+                <Ionicons name="mic-circle-sharp" size={75} color="black" />            
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => {navigation.navigate("cartlist")}} style={styles.bagbutton}>
+                <Feather name="shopping-bag" size={35} color="black" />
+                </TouchableOpacity>
+
             </View>  
 
         
         
-    </View>;
+        </View>
+    );
 }
 const categories = [
+
     {id: '1a', name: 'All'},
     {id: '2', name: 'Roadbike'},
     {id: '3', name: 'Mountain'},
@@ -84,12 +102,11 @@ const categories = [
         <Text style={styles.categoryText}>{name}</Text>
       </View>
     );
-
    
   };
 
-  
   const BikeFrames = [
+
     {
       id: '1',
       bikename: 'Santa Cruzz Bike',
@@ -183,8 +200,8 @@ const styles = StyleSheet.create({
     categorytab: {
         paddingVertical: 10,
         paddingHorizontal: 25,
-        backgroundColor: '#e6e6e6',
-        marginHorizontal: 20,
+        backgroundColor: "#e6e6e6",
+        marginHorizontal: 5,
         marginVertical: 15,
         borderRadius: 12,
         marginTop: 25,
@@ -195,6 +212,34 @@ const styles = StyleSheet.create({
         color: 'gray',
 
       },
+
+     
+      hometab: {
+        backgroundColor:"#e6e6e6",
+        marginTop:45,
+        flexDirection: "row",
+        paddingBottom:50,
+        paddingTop:15,
+
+      },
+
+      homebutton: {
+        marginLeft: 70,
+        
+      },
+
+      MicButton: {
+        marginLeft: 70,
+        marginTop: -55,
+        
+        
+        
+      },   
+
+      bagbutton: {
+        left: 70,
+      },
+
 
       
 
