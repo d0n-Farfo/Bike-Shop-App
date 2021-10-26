@@ -49,7 +49,7 @@ export default function home({navigation}){
                 />
             </View>
 
-            <View style={StyleSheet.bikes}>
+            <View style={styles.bikes}>
             
                 <FlatList
                     data={BikeFrames}
