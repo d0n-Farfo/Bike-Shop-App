@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     },
     buttomtext2: {
         fontSize: 14,
-        color: "orange",
+        color: "#ff792f",
         fontWeight: "bold",
         marginTop: 12,
 

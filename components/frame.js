@@ -6,16 +6,16 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 const Bikeframe = ({bikename, price, image}) => {
     return (
       <View style={styles.container}>
-        <View style={styles.likeButton}>
-          <AntDesign name="hearto" size={20} color="#e2884b" />
-        </View>
-        <Image source={image} style={styles.image} />
-        <View style={styles.details}>
-          <Text style={styles.bikename}>{bikename}</Text>
-          <Text style={styles.boldText}>
-            <Text style={styles.amount}>$ </Text>
+          <View style={styles.likeButton}>
+            <AntDesign name="hearto" size={20} color="#ff792f" />
+          </View>
+            <Image source={image} style={styles.image} />
+          <View style={styles.details}>
+            <Text style={styles.bikename}>{bikename}</Text>
+            <Text style={styles.boldText}>
+              <Text style={styles.amount}>$ </Text>
             {price}
-          </Text>
+            </Text>
         </View>
       </View>
     );
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
 
     amount: {
-      color: '#e2884b',
+      color: "#ff792f",
 
     },
 
