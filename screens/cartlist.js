@@ -4,6 +4,7 @@ import { StyleSheet, Text, Image, TouchableOpacity, FlatList } from 'react-nativ
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import Bikelist from "../components/bikelist";
 
 
 export default function cartlist({navigation}){
@@ -17,13 +18,24 @@ export default function cartlist({navigation}){
             </View>
                     <Text style={styles.title2}>(3 items)</Text>
 
-
-
-
-
-
-
-
+            <View style={styles.bikes}>
+                <FlatList
+                    data={Bicycles}
+                    renderItem={({item}) => {
+                        return (
+                            <Bikelist
+                                bikename={item.bikename}
+                                price={item.price}
+                                type={item.type}
+                                image={item.image}
+                            />
+                        );
+                    }}
+                    keyExtractor={item => {
+                        item.id;
+                    }}
+                />
+            </View>
 
             <View style={styles.cost}>
                 <View style={styles.subtotal}>
@@ -39,7 +51,7 @@ export default function cartlist({navigation}){
                 </View>
 
                 <View>
-                    <Text>.............................................................................................</Text>
+                    <Text>........................................................................................</Text>
                 </View>
 
                 <View style={styles.total}>
@@ -96,6 +108,7 @@ const Bicycles = [
     {
         id: '4',
         bikename: 'H2R Bike',
+        type:"Roadbike",
         price: '60,980.00',
         image: require('../assets/h2r1000.png'),
       },
@@ -129,7 +142,7 @@ const styles = StyleSheet.create({
         
     },
     checkoutbutton:{
-        marginTop:30,
+        marginTop:3,
         margin:"8%",
         backgroundColor:"#ff792f",
         borderRadius:15,
@@ -146,7 +159,7 @@ const styles = StyleSheet.create({
 
     hometab: {
         backgroundColor:"#e6e6e6",
-        marginTop:45,
+        marginTop:20,
         flexDirection: "row",
         paddingBottom:50,
         paddingTop:15,
@@ -168,10 +181,15 @@ const styles = StyleSheet.create({
         left: 70,
       },
 
-      cost:{
-        marginTop:200,  
-        backgroundColor:"#e6e6e6",
+      bikes:{
         margin:"5%",
+        marginTop:5,
+      },
+
+      cost:{
+        marginTop:10,  
+        backgroundColor:"#e6e6e6",
+        margin:"7%",
         borderRadius:30,
         
       },
@@ -197,22 +215,23 @@ const styles = StyleSheet.create({
       },
 
       dollar:{
-          fontSize:15,
+          fontSize:12,
           fontWeight:"bold",
           color:"#ff792f",
-          marginTop:4,
+          marginTop:-10,
           marginLeft:115,
       },
 
       money:{
-          fontSize:20,
+          fontSize:18,
           fontWeight:"bold",
-          
+          marginTop:-15,
       },
 
       look:{
-          fontSize: 18,
+          fontSize: 17,
           color:"gray",
+          marginTop:-15,
           
       }
 
